@@ -1,12 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class Home extends React.Component {
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>You're adding a friend</Text>
+        <Text>Home</Text>
+        <Button
+          title="Go to Follow Page"
+          onPress={() => {
+            this.props.navigation.navigate("Follow")
+          }}
+        />
       </View>
     );
   }

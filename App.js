@@ -7,8 +7,9 @@ import Follow from './screens/Follow';
 
 const MainNavigator = createStackNavigator(
     {
-     Home: { screen: Home },
-     Follow: { screen: Follow }
+      // order matters
+      Home: { screen: Home }, // puts react-navigation props into Home component
+      Follow: { screen: Follow } // puts react-navigation props into Follow component
     }, 
     {
      defaultNavigationOptions: {
