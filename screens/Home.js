@@ -3,14 +3,35 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class Home extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      followReq: ["John", "Jane", "Ram", "Ben"],
+      following: ["Sony", "Kenny"]
+    };
+  }
+
+  doFollow = index => {
+    const { followReq, following } = this.state;
+    const newFollow = followReq.splice(index, 1); // taking index of followReq
+    following.push(newFollow); // add newFollow to following
+    this.setState({ followReq, following });
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Home</Text>
+        <Text>You're following { this.state.following.length }</Text>
         <Button
           title="Go to Follow Page"
           onPress={() => {
-            this.props.navigation.navigate("Follow")
+            {/* this passes props / states when you navigate to follow */}
+            this.props.navigation.navigate("Follow", {
+              followRequest: this.state.followReq,
+              following: this.state.following,
+              doFollow: this.doFollow
+            })
           }}
         />
       </View>
