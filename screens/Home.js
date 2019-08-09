@@ -6,7 +6,7 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      followReq: ["John", "Jane", "Ram", "Ben"],
+      followReq: ["John", "Jane", "Ram", "Ben", "Bob"],
       following: ["Sony", "Kenny"]
     };
   }
@@ -28,7 +28,7 @@ export default class Home extends React.Component {
           onPress={() => {
             {/* this passes props / states when you navigate to follow */}
             this.props.navigation.navigate("Follow", {
-              followRequest: this.state.followReq,
+              followReq: this.state.followReq,
               following: this.state.following,
               doFollow: this.doFollow
             })

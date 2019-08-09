@@ -5,9 +5,24 @@ export default class Follow extends React.Component {
 
   
   render() {
+    const followReq = this.props.navigation.getParam("followReq", "0");
+    const doFollow = this.props.navigation.getParam("doFollow", "0");
     return (
       <View style={styles.container}>
         <Text>Follow</Text>
+        {
+          followReq.map((friend, index) => {
+            return (
+              <Button 
+                key={friend}
+                title={`Follow ${friend}`}
+                onPress={() => doFollow(index)}
+              />
+            )
+          })
+        }
+
+
         <Button
           title="Go to Home Page"
           onPress={() => {
